@@ -1,10 +1,10 @@
 /*
- * heatmap.js v2.0.1 | JavaScript Heatmap Library
+ * heatmapjs v2.0.1 | JavaScript Heatmap Library
  *
  * Copyright 2008-2014 Patrick Wied <heatmapjs@patrick-wied.at> - All rights reserved.
  * Dual licensed under MIT and Beerware license 
  *
- * :: 2015-07-21 01:00
+ * :: 2016-02-03 23:43
  */
 ;(function (name, context, factory) {
 
