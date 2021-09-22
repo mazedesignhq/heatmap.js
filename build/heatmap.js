@@ -1,10 +1,10 @@
 /*
- * heatmapjs v2.0.1 | JavaScript Heatmap Library
+ * heatmapjs v2.0.2 | JavaScript Heatmap Library
  *
  * Copyright 2008-2014 Patrick Wied <heatmapjs@patrick-wied.at> - All rights reserved.
  * Dual licensed under MIT and Beerware license 
  *
- * :: 2016-02-03 23:43
+ * :: 2021-09-22 17:59
  */
 ;(function (name, context, factory) {
 
@@ -319,7 +319,7 @@ var Canvas2dRenderer = (function Canvas2dRendererClosure() {
     var container = config.container;
     var shadowCanvas = this.shadowCanvas = document.createElement('canvas');
     var canvas = this.canvas = config.canvas || document.createElement('canvas');
-    var renderBoundaries = this._renderBoundaries = [10000, 10000, 0, 0];
+    var renderBoundaries = this._renderBoundaries = [1000, 1000, 0, 0];
 
     var computed = getComputedStyle(config.container) || {};
 
