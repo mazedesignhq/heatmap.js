@@ -230,45 +230,47 @@ var Canvas2dRenderer = (function Canvas2dRendererClosure() {
         height = maxHeight - y;
       }
 
-      var img = this.shadowCtx.getImageData(x, y, width, height);
-      var imgData = img.data;
-      var len = imgData.length;
-      var palette = this._palette;
+      if (width >= 1 && height >= 1) {
+        var img = this.shadowCtx.getImageData(x, y, width, height);
+        var imgData = img.data;
+        var len = imgData.length;
+        var palette = this._palette;
 
 
-      for (var i = 3; i < len; i+= 4) {
-        var alpha = imgData[i];
-        var offset = alpha * 4;
+        for (var i = 3; i < len; i+= 4) {
+          var alpha = imgData[i];
+          var offset = alpha * 4;
 
 
-        if (!offset) {
-          continue;
-        }
-
-        var finalAlpha;
-        if (opacity > 0) {
-          finalAlpha = opacity;
-        } else {
-          if (alpha < maxOpacity) {
-            if (alpha < minOpacity) {
-              finalAlpha = minOpacity;
-            } else {
-              finalAlpha = alpha;
-            }
-          } else {
-            finalAlpha = maxOpacity;
+          if (!offset) {
+            continue;
           }
+
+          var finalAlpha;
+          if (opacity > 0) {
+            finalAlpha = opacity;
+          } else {
+            if (alpha < maxOpacity) {
+              if (alpha < minOpacity) {
+                finalAlpha = minOpacity;
+              } else {
+                finalAlpha = alpha;
+              }
+            } else {
+              finalAlpha = maxOpacity;
+            }
+          }
+
+          imgData[i-3] = palette[offset];
+          imgData[i-2] = palette[offset + 1];
+          imgData[i-1] = palette[offset + 2];
+          imgData[i] = useGradientOpacity ? palette[offset + 3] : finalAlpha;
+
         }
 
-        imgData[i-3] = palette[offset];
-        imgData[i-2] = palette[offset + 1];
-        imgData[i-1] = palette[offset + 2];
-        imgData[i] = useGradientOpacity ? palette[offset + 3] : finalAlpha;
-
+        img.data = imgData;
+        this.ctx.putImageData(img, x, y);
       }
-
-      img.data = imgData;
-      this.ctx.putImageData(img, x, y);
 
       this._renderBoundaries = [1000, 1000, 0, 0];
 
