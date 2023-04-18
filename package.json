@@ -1,9 +1,9 @@
 {
-  "name": "heatmapjs",
+  "name": "@mazeapp/heatmapjs",
   "version": "2.0.3",
   "description": "Dynamic JavaScript Heatmaps for the Web",
   "homepage": "https://github.com/pa7/heatmap.js",
-  "main": "heatmap.min.js",
+  "main": "build/heatmap.min.js",
   "devDependencies": {
     "grunt": ">= 0.4.1",
     "coffee-script": ">= 1.6.3",
@@ -14,6 +14,9 @@
     "grunt-contrib-copy": ">= 0.7.0",
     "grunt-shell": "^0.7.0"
   },
+  "files": [
+    "build"
+  ],
   "keywords": [
     "heatmap",
     "heatmaps",
