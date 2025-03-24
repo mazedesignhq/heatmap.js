@@ -14,22 +14,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Enable corepack for Node
-        run: corepack enable
-
-      - name: Use Node.js 20
-        uses: actions/setup-node@v4
-        with:
-          node-version-file: .tool-versions
-          cache: 'yarn'
-
-      - run: yarn install --frozen-lockfile
-
       - name: Run Coana CLI
         id: coana-cli
-        uses: coana-tech/coana-action/vulnerability-analysis@stable
-        with:
-          apiKey: ${{ secrets.COANA_API_KEY_PUBLIC_REPOS }}
-          repoUrl: https://github.com/${{github.repository}}
-          debug: 'true'
-          uploadReportArtifact: 'true'
+        uses: docker://coana/coana:latest
+        with: 
+          args: |
+            coana run . \
+              --api-key ${{ secrets.COANA_API_KEY_PUBLIC_REPOS }} \
+              --repo-url https://github.com/${{github.repository}}
