@@ -24,7 +24,7 @@ jobs:
 
       - name: Run Socket scan
         # renovate: datasource=npm depName=socket
-        run: npx socket@1.1.78 scan create --repo="$GITHUB_REPO" --branch="$GITHUB_BRANCH" --default-branch .
+        run: npx socket@1.1.78 scan create --repo="$GITHUB_REPO" --branch="$GITHUB_BRANCH" --default-branch --org=mazedesignhq .
         env:
           SOCKET_SECURITY_API_KEY: ${{ secrets.SOCKET_SECURITY_API_KEY }}
           GITHUB_REPO: ${{ github.repository }}
