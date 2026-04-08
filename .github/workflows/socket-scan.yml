@@ -27,5 +27,5 @@ jobs:
         run: npx socket@1.1.78 scan create --repo="$GITHUB_REPO" --branch="$GITHUB_BRANCH" --default-branch --org=mazedesignhq .
         env:
           SOCKET_SECURITY_API_KEY: ${{ secrets.SOCKET_SECURITY_API_KEY }}
-          GITHUB_REPO: ${{ github.repository }}
+          GITHUB_REPO: ${{ github.event.repository.name }}
           GITHUB_BRANCH: ${{ github.ref_name }}
