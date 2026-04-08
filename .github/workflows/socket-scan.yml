@@ -20,6 +20,7 @@ jobs:
           node-version: 22
 
       - name: Run Socket scan
-        run: npx socket@latest scan create --repo="${{ github.repository }}" --branch="${{ github.ref_name }}" --default-branch .
+        # renovate: datasource=npm depName=socket
+        run: npx socket@1.1.78 scan create --repo="${{ github.repository }}" --branch="${{ github.ref_name }}" --default-branch .
         env:
           SOCKET_SECURITY_API_KEY: ${{ secrets.SOCKET_SECURITY_API_KEY }}
