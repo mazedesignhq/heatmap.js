@@ -22,6 +22,9 @@ jobs:
         with:
           node-version: 24
 
+      - name: Enable corepack
+        run: corepack enable
+
       - name: Run Socket scan
         # renovate: datasource=npm depName=socket
         run: npx socket@1.1.78 scan create --repo="$GITHUB_REPO" --branch="$GITHUB_BRANCH" --default-branch --org=mazedesignhq --reach .
