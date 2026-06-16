@@ -5,7 +5,7 @@
   "homepage": "https://github.com/pa7/heatmap.js",
   "main": "build/heatmap.min.js",
   "devDependencies": {
-    "grunt": ">= 0.4.1",
+    "grunt": ">= 1.5.3",
     "coffee-script": ">= 1.6.3",
     "grunt-contrib-uglify": ">= 0.2.0",
     "grunt-contrib-concat": ">= 0.1.3",
