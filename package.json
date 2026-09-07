@@ -33,5 +33,8 @@
     "src/renderer.js", 
     "src/util.js", 
     "src/core.js"
-  ]
+  ],
+  "resolutions": {
+    "lodash": "^4.18.0"
+  }
 }
